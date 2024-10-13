@@ -28,8 +28,7 @@
 }
 .seat-image {
   width: auto; /* Set a width */
-  height: auto; /* Maintain aspect ratio */
-  max-height: 70px; /* Maximum height to control the size */
+  height: auto; /* Maintain aspect ratio */ /* Maximum height to control the size */
   object-fit: contain; /* Ensure the image fits without distortion */
   cursor: pointer; /* Show pointer cursor on hover */
 }
