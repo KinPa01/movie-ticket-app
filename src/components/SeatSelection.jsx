@@ -21,10 +21,10 @@ const SeatSelection = () => {
   const [selectedSeats, setSelectedSeats] = useState([]);
   const [bookedSeats, setBookedSeats] = useState([]);
 
-  // Change number of seats to 30 (6 rows x 5 seats)
-  const seats = Array.from({ length: 30 }, (_, index) => ({
+  // Change number of seats to 64 (8 rows x 8 seats)
+  const seats = Array.from({ length: 64 }, (_, index) => ({
     id: index + 1,
-    name: String.fromCharCode(65 + Math.floor(index / 5)) + (index % 5 + 1),
+    name: String.fromCharCode(65 + Math.floor(index / 8)) + (index % 8 + 1),
   }));
 
   useEffect(() => {
@@ -153,9 +153,9 @@ const SeatSelection = () => {
       <p className="showtime">Showtime: {time}</p>
       <div className="screen-label">-- Screen --</div>
       <div className="seats-container">
-        {Array.from({ length: 6 }, (_, rowIndex) => (
+        {Array.from({ length: 8 }, (_, rowIndex) => (
           <div key={rowIndex} className="seat-row">
-            {seats.slice(rowIndex * 5, rowIndex * 5 + 5).map(seat => {
+            {seats.slice(rowIndex * 8, rowIndex * 8 + 8).map(seat => {
               const seatId = seat.name;
               const isSelected = selectedSeats.includes(seatId);
               const isBooked = bookedSeats.includes(seatId);
