@@ -1,0 +1,62 @@
+.seat-selection {
+  padding: 20px;
+  text-align: center;
+}
+
+.seat-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.row-label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.seat {
+  width: 80px;
+  height: 50px;
+  margin: 5px;
+}
+
+.payment-button {
+  justify-content: space-between;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.payment-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.back-button {
+  justify-content: space-between;
+  background-color: #bb3d3d;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.back-button:hover {
+  background-color: #7e3232;
+}
+
+.payment-button:hover {
+  background-color: #262726;
+}
+.menu {
+  justify-content: space-between;
+  display: flex;
+}

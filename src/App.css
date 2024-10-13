@@ -1,0 +1,82 @@
+/* app.css */
+
+
+.movie-card {
+  position: relative; /* ทำให้สามารถใช้ position absolute สำหรับคะแนน */
+  background-color: #f5f5f5; /* สีไข่มุกขาว */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: 600px;
+  width: 300px; /* กำหนดความกว้างของการ์ด */
+  margin-bottom: 20px; /* ระยะห่างด้านล่าง */
+  text-align: center; /* จัดข้อความให้ชิดกลาง */
+  transition: transform 0.3s ease; /* เอฟเฟกต์ในการขยายการ์ด */
+}
+
+.movie-poster {
+  width: 220px; /* กำหนดความกว้างของโปสเตอร์ */
+  height: auto; /* รักษาสัดส่วน */
+  border-radius: 8px; /* เพิ่มมุมโค้งให้ภาพ */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* เพิ่มเงาเพื่อความสวยงาม */
+}
+
+.ratings {
+  position: absolute;
+  bottom: 10px; /* ระยะห่างจากด้านล่าง */
+  left: 10px; /* ระยะห่างจากด้านซ้าย */
+  color: white; /* สีข้อความ */
+  background-color: rgba(0, 0, 0, 0.5); /* พื้นหลังให้ชัดเจน */
+  padding: 5px; /* ระยะห่างภายใน */
+  border-radius: 5px; /* มุมโค้ง */
+  font-size: 12px; /* ขนาดตัวอักษร */
+  display: flex; /* เพื่อจัดเรียงภาพไอคอนคะแนน */
+  gap: 5px; /* ระยะห่างระหว่างไอคอน */
+}
+
+.rating-icon {
+  width: 20px; /* ขนาดไอคอน */
+  height: 20px; /* ขนาดไอคอน */
+}
+
+.screen-label {
+  width: 100%; /* ใช้ความกว้างเต็ม */
+  text-align: center; /* จัดกึ่งกลางข้อความ */
+  font-size: 1.5rem; /* ขนาดตัวอักษร */
+  margin: 20px 0; /* ระยะห่างด้านบนและล่าง */
+  border-top: 2px solid #000; /* สร้างเส้นแบ่งด้านบน */
+  border-bottom: 2px solid #000; /* สร้างเส้นแบ่งด้านล่าง */
+  padding: 10px 0; /* ระยะห่างด้านบนและล่างในส่วนของข้อความ */
+}
+
+.movie-title {
+  font-size: 2rem; /* ขนาดตัวอักษรชื่อหนัง */
+  margin-bottom: 5px; /* ปรับระยะห่างด้านล่าง */
+}
+
+.showtime {
+  font-size: 1.5rem; /* ขนาดตัวอักษรเวลา */
+  margin-top: 0; /* ยกเลิกการตั้งค่าระยะห่างด้านบน */
+}
+
+.container {
+  display: flex; /* ใช้ flexbox สำหรับการจัดเรียง */
+  flex-direction: column; /* ให้จัดเรียงเป็นแนวตั้ง */
+}
+
+.main-content {
+  display: flex; /* จัดให้มีการจัดเรียงแบบ flex */
+  justify-content: center; /* จัดกลางเนื้อหา */
+  flex-wrap: wrap; /* ให้การ์ดหนังสามารถพันเข้าด้วยกัน */
+  gap: 20px; /* ระยะห่างระหว่างการ์ด */
+}
+.movie-genre {
+  font-size: 18px; /* ขนาดตัวอักษร */
+  color: #555; /* สีตัวอักษร */
+  margin: 10px 0; /* ระยะห่างบน-ล่าง */
+  text-align: center; /* จัดกึ่งกลาง */
+}
+button{
+  background-color: #f02f2f;
+  
+  }

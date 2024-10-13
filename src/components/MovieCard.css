@@ -1,0 +1,109 @@
+.movie-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 400px; /* กำหนดความสูงให้เท่ากันทั้งหมด */
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  transition: box-shadow 0.3s; /* เพิ่ม transition สำหรับ shadow */
+}
+.movie-card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* shadow เมื่อ hover */
+}
+
+.container {
+  position: relative;
+  text-align: center;
+  padding-bottom: 10px;
+
+}
+.poster-container {
+  flex-grow: 1; /* ทำให้พื้นที่โปสเตอร์ใช้พื้นที่ว่าง */
+  display: flex; /* ใช้ flex เพื่อจัดตำแหน่ง */
+  align-items: center; /* จัดกลางแนวตั้ง */
+  justify-content: center; /* จัดกลางแนวนอน */
+  overflow: hidden; /* ซ่อนส่วนที่เกินของภาพ */
+  height: 200px; /* กำหนดความสูงของกรอบโปสเตอร์ */
+}
+
+.movie-poster {
+  width: 100%; /* ทำให้กว้างสุดเท่ากับกรอบ */
+  height: 100%; /* ทำให้สูงสุดเท่ากับกรอบ */
+  object-fit: cover; /* ปรับภาพให้พอดีกับกรอบ */
+}
+
+.poster-container:hover .movie-poster {
+  transform: scale(1.05);
+}
+
+.showtimes-button {
+  margin-top: auto; /* ทำให้ปุ่มอยู่ด้านล่างสุด */
+  width: 100%; /* ทำให้ปุ่มกว้างเต็มกรอบ */
+  padding: 10px; /* เพิ่ม padding ให้ปุ่ม */
+  background-color: #e63946; /* สีพื้นหลังปุ่ม */
+  color: white; /* สีข้อความ */
+  border: none; /* ไม่ให้มีขอบ */
+  border-radius: 5px; /* มุมโค้งของปุ่ม */
+  cursor: pointer; /* เปลี่ยนเคอร์เซอร์เมื่อชี้ไปที่ปุ่ม */
+}
+
+.showtime-buttons button {
+  width: 100%; /* ขยายปุ่มเต็มความกว้าง */
+  padding: 15px 0; /* เพิ่มขนาดปุ่ม */
+  background-color: #ff0000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.2rem; /* เพิ่มขนาดตัวอักษร */
+}
+.showtime-buttons button:hover {
+  background-color: #a13333;
+}
+
+.movie-rating {
+  position: absolute;
+  bottom: 0; /* ทำให้คะแนนอยู่ด้านล่างของโปสเตอร์ */
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  padding: 5px;
+  font-size: 0.8rem;
+  border-radius: 0 0 10px 10px;
+}
+
+.rating-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.rating-logo {
+  width: 20px;
+  height: auto;
+}
+.movie-title {
+  font-size: 1.5rem; /* ขนาดตัวอักษรสำหรับชื่อหนัง */
+  font-weight: bold; /* ทำให้ตัวอักษรหนาขึ้น */
+  margin: 0.5rem 0; /* ระยะห่างด้านบนและล่าง */
+  text-align: center; /* จัดกลางข้อความ */
+}
+
+.movie-genre {
+  font-size: 1.2rem; /* ขนาดตัวอักษรสำหรับประเภทหนัง */
+  color: #666; /* สีของตัวอักษร */
+  margin: 0.25rem 0; /* ระยะห่างด้านบนและล่าง */
+  text-align: center; /* จัดกลางข้อความ */
+}
+
+.movie-theater {
+  font-size: 1rem; /* ขนาดตัวอักษรสำหรับชื่อโรงภาพยนตร์ */
+  color: #999; /* สีของตัวอักษร */
+  margin: 0.25rem 0; /* ระยะห่างด้านบนและล่าง */
+  text-align: center; /* จัดกลางข้อความ */
+}

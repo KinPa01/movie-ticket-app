@@ -1,0 +1,39 @@
+.showtime-selection {
+    text-align: center;
+  }
+  
+  .date-selection button,
+  .theater-selection button,
+  .time-selection button {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #f5f5f5;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .date-selection button.selected,
+  .theater-selection button.selected,
+  .time-selection button.selected {
+    background-color: #bb3d3d;
+    color: white;
+  }
+  
+  .theater-map {
+    margin-top: 20px;
+    width: 300px;
+    height: auto;
+    border: 1px solid #000;
+  }
+  .button{
+    background-color: #bb3d3d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+  }

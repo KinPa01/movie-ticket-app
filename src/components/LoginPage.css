@@ -1,0 +1,41 @@
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f8ff; /* ฟ้าอ่อน */
+  }
+  
+  .login-form {
+    background-color: #f5f5f5; /* สีไข่มุกขาว */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+  }
+  
+  .login-form input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .login-form .login-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #87cefa; /* ฟ้าอ่อน */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .login-form .login-button:hover {
+    background-color: #4682b4; /* ฟ้าคล้ำ */
+  }
+  
