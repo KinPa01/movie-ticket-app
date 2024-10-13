@@ -1,3 +1,8 @@
+.seats-container {
+  display: flex;
+  flex-direction: column; /* Arrange rows vertically */
+  align-items: center; /* Center rows */
+}
 .seat-selection {
   padding: 20px;
   text-align: center;
@@ -5,24 +10,36 @@
 
 .seat-row {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  justify-content: center; /* Center seats in each row */
+  margin: 10px 0; /* Space between rows */
 }
 
 .row-label {
   margin-right: 10px;
   font-weight: bold;
 }
-
-.seat {
-  width: 80px;
-  height: 50px;
-  margin: 5px;
+.movie-title, .movie-genre, .showtime {
+  text-align: center; /* Center text */
 }
-
+.seat {
+  display: flex;
+  flex-direction: column; /* Arrange image and label vertically */
+  align-items: center; /* Center the label */
+}
+.seat-image {
+  width: 50px; /* Set a width */
+  height: auto; /* Maintain aspect ratio */
+  max-height: 70px; /* Maximum height to control the size */
+  object-fit: contain; /* Ensure the image fits without distortion */
+  cursor: pointer; /* Show pointer cursor on hover */
+}
+.seat-image:hover {
+  transform: scale(1.1); /* Slightly enlarge the image on hover */
+  transition: transform 0.2s; /* Smooth transition */
+}
 .payment-button {
   justify-content: space-between;
-  background-color: #28a745;
+  background-color: #409955;
   color: white;
   border: none;
   padding: 10px 20px;

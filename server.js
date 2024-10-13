@@ -30,18 +30,62 @@ app.post('/api/bookSeat', (req, res) => {
     const { seats, showtime } = req.body; // รับที่นั่งและเวลาจาก client
     const purchaseTime = new Date(); // เวลาที่กดซื้อ
 
-    // บันทึกที่นั่งที่จองในฐานข้อมูล
-    const sql = 'INSERT INTO bookings (seats, showtime, purchase_time) VALUES ?';
-    const values = seats.map(seat => [seat, showtime, purchaseTime]); // แปลงที่นั่ง เวลา และเวลาที่กดซื้อเป็นรูปแบบที่เหมาะสมสำหรับ SQL
+    // ตรวจสอบว่าที่นั่งที่ส่งมานั้นเป็น array และไม่ว่าง
+    if (!Array.isArray(seats) || seats.length === 0) {
+        return res.status(400).send({ message: 'Invalid seats format. Seats should be a non-empty array.' });
+    }
 
-    db.query(sql, [values], (err, result) => {
+    // ตรวจสอบว่าที่นั่งมีอยู่แล้วในฐานข้อมูล
+    const placeholders = seats.map(() => '?').join(','); // สร้าง placeholders สำหรับการ query
+    const checkSeatsQuery = `SELECT seats FROM bookings WHERE showtime = ? AND seats IN (${placeholders})`;
+    const queryParams = [showtime, ...seats];
+
+    db.query(checkSeatsQuery, queryParams, (err, results) => {
         if (err) {
-            console.error('Error saving booked seats:', err);
-            return res.status(500).send({ message: 'Error saving booked seats.' });
+            console.error('Error checking booked seats:', err);
+            return res.status(500).send({ message: 'Error checking booked seats.' });
         }
 
-        // ส่งข้อมูลกลับไปยัง client
-        res.status(200).send({ message: 'Seats booked successfully!', bookedSeats: seats });
+        if (results.length > 0) {
+            return res.status(400).send({ message: 'Some of the selected seats are already booked.' });
+        }
+
+        // บันทึกที่นั่งที่จองในฐานข้อมูล
+        const sql = 'INSERT INTO bookings (seats, showtime, purchase_time) VALUES ?';
+        const values = seats.map(seat => [seat, showtime, purchaseTime]); // แปลงที่นั่ง เวลา และเวลาที่กดซื้อเป็นรูปแบบที่เหมาะสมสำหรับ SQL
+
+        // ใช้ query หลายแถว
+        db.query(sql, [values], (err, result) => {
+            if (err) {
+                console.error('Error saving booked seats:', err);
+                return res.status(500).send({ message: 'Error saving booked seats.' });
+            }
+
+            // ส่งข้อมูลกลับไปยัง client
+            res.status(200).send({ message: 'Seats booked successfully!', bookedSeats: seats });
+        });
+    });
+});
+
+// เส้นทางสำหรับดึงที่นั่งที่จองแล้ว
+app.get('/api/bookedSeats', (req, res) => {
+    const { showtime } = req.query; // รับ showtime จาก query params
+
+    // ตรวจสอบว่า showtime ถูกส่งเข้ามาหรือไม่
+    if (!showtime) {
+        return res.status(400).send({ message: 'Showtime is required.' });
+    }
+
+    const query = 'SELECT seats FROM bookings WHERE showtime = ?';
+    db.query(query, [showtime], (err, results) => {
+        if (err) {
+            console.error('Error fetching booked seats:', err);
+            return res.status(500).send({ message: 'Error fetching booked seats.' });
+        }
+
+        // แปลงผลลัพธ์ให้เป็น Array ของที่นั่งที่จองแล้ว
+        const bookedSeats = results.map(row => row.seats);
+        res.status(200).send(bookedSeats);
     });
 });
 

@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import MovieCard from './components/MovieCard';
-import LoginPage from './components/LoginPage';
 import MovieDetails from './components/MovieDetails';
 import SeatSelection from './components/SeatSelection';
 import ShowtimeSelection from './components/ShowtimeSelection';
@@ -32,7 +31,6 @@ function App() {
               </div>
             }
           />
-          <Route path="/login" element={<LoginPage onLogin={handleLogin} />} />
           <Route path="/movie/:id" element={<MovieDetails movies={movies} />} />
           <Route path="/seat-selection" element={<SeatSelection />} />
           <Route path="/movie-details/:id" element={<MovieDetails />} />
