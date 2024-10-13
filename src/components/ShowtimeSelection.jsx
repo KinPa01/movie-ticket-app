@@ -35,10 +35,15 @@ const ShowtimeSelection = () => {
       alert('Please select a theater and showtime to proceed.');
       return;
     }
+    
+    // Debugging logs to verify the selected values
+    console.log(`Proceeding with: Movie: ${movie.title}, Theater: ${selectedTheater}, Time: ${selectedTime}`);
+    
     navigate('/seat-selection', {
       state: { movie, theater: selectedTheater, time: selectedTime },
     });
   };
+  
 
   return (
     <div className="showtime-selection">
@@ -50,7 +55,7 @@ const ShowtimeSelection = () => {
             key={index}
             onClick={() => handleTheaterSelection(theater)}
             className={selectedTheater === theater ? 'selected' : ''}
-          >
+          >Theater 
             {theater}
           </button>
         ))}

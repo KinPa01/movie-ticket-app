@@ -1,21 +1,28 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import SeatSelection from './SeatSelection';
 
 const MovieDetails = ({ movies }) => {
-  // ดึง id จาก URL และหาภาพยนตร์ที่ตรงกัน
-  const movieId = parseInt(window.location.pathname.split('/')[2]);
-  const movie = movies.find((m) => m.id === movieId);
+  const location = useLocation();
+  const { movie, theater: selectedTheater, time: selectedTime } = location.state || {}; // ดึงข้อมูลจาก state
+
+  // ถ้า movie ไม่ถูกส่งมาให้หาจาก movies
+  const movieId = movie?.id || parseInt(window.location.pathname.split('/')[2]);
+  const movieData = movie || movies.find((m) => m.id === movieId);
 
   return (
     <div className="movie-details">
-      {movie ? (
+      {movieData ? (
         <>
-          <h2>{movie.title}</h2>
-          <p>Time: {movie.time}</p>
-          <p>Theater: {movie.theater}</p>
-          <p>Price: {movie.price} THB</p>
+          <h2>{movieData.title}</h2>
+          <p>Time: {selectedTime}</p> {/* แสดงเวลาฉายที่เลือก */}
+          <p>Theater: {selectedTheater}</p> {/* แสดงหมายเลขโรงภาพยนตร์ที่เลือก */}
+          <p>Price: {movieData.price} THB</p>
           {/* แสดง component สำหรับเลือกที่นั่ง */}
-          <SeatSelection movie={movie} onPayment={() => alert(`Ticket purchased for ${movie.title}`)} />
+          <SeatSelection 
+            movie={movieData} 
+            onPayment={() => alert(`Ticket purchased for ${movieData.title}`)} 
+          />
         </>
       ) : (
         <p>Movie not found</p>

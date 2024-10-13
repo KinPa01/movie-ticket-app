@@ -27,7 +27,7 @@ db.connect((err) => {
 
 // เส้นทางสำหรับจองที่นั่ง
 app.post('/api/bookSeat', (req, res) => {
-    const { seats, showtime } = req.body; // รับที่นั่งและเวลาจาก client
+    const { seats, showtime, theater } = req.body; // รับ theater จาก client
     const purchaseTime = new Date(); // เวลาที่กดซื้อ
 
     // ตรวจสอบว่าที่นั่งที่ส่งมานั้นเป็น array และไม่ว่าง
@@ -37,8 +37,8 @@ app.post('/api/bookSeat', (req, res) => {
 
     // ตรวจสอบว่าที่นั่งมีอยู่แล้วในฐานข้อมูล
     const placeholders = seats.map(() => '?').join(','); // สร้าง placeholders สำหรับการ query
-    const checkSeatsQuery = `SELECT seats FROM bookings WHERE showtime = ? AND seats IN (${placeholders})`;
-    const queryParams = [showtime, ...seats];
+    const checkSeatsQuery = `SELECT seats FROM bookings WHERE showtime = ? AND theater = ? AND seats IN (${placeholders})`;
+    const queryParams = [showtime, theater, ...seats]; // เพิ่ม theater เข้าไปใน query params
 
     db.query(checkSeatsQuery, queryParams, (err, results) => {
         if (err) {
@@ -51,8 +51,8 @@ app.post('/api/bookSeat', (req, res) => {
         }
 
         // บันทึกที่นั่งที่จองในฐานข้อมูล
-        const sql = 'INSERT INTO bookings (seats, showtime, purchase_time) VALUES ?';
-        const values = seats.map(seat => [seat, showtime, purchaseTime]); // แปลงที่นั่ง เวลา และเวลาที่กดซื้อเป็นรูปแบบที่เหมาะสมสำหรับ SQL
+        const sql = 'INSERT INTO bookings (seats, showtime, purchase_time, theater) VALUES ?';
+        const values = seats.map(seat => [seat, showtime, purchaseTime, theater]); // เพิ่ม theater เข้าไปใน values
 
         // ใช้ query หลายแถว
         db.query(sql, [values], (err, result) => {
