@@ -1,0 +1,16 @@
+.ticket {
+    border: 1px solid #333;
+    padding: 20px;
+    width: 300px;
+    margin: 20px auto;
+    text-align: center;
+    background-color: #fff;
+  }
+  
+  .print-button {
+    margin-top: 15px;
+    padding: 10px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  

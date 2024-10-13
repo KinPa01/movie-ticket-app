@@ -21,10 +21,17 @@ const SeatSelection = () => {
   useEffect(() => {
     const fetchBookedSeats = async () => {
       try {
+        // ดึงข้อมูลที่นั่งที่จองจากเซิร์ฟเวอร์
         const response = await axios.get('http://localhost:5000/api/bookedSeats');
-        setBookedSeats(response.data); // สมมติว่า response.data เป็น Array ของที่นั่งที่จองแล้ว
+        setBookedSeats(response.data);
+        // บันทึกข้อมูลที่นั่งที่จองไว้ใน localStorage
+        localStorage.setItem('bookedSeats', JSON.stringify(response.data));
       } catch (error) {
         console.error('Error fetching booked seats:', error);
+        
+        // โหลดข้อมูลที่นั่งจาก localStorage ในกรณีที่ไม่สามารถดึงข้อมูลจากเซิร์ฟเวอร์ได้
+        const savedBookedSeats = JSON.parse(localStorage.getItem('bookedSeats')) || [];
+        setBookedSeats(savedBookedSeats);
       }
     };
 
@@ -65,28 +72,24 @@ const SeatSelection = () => {
     const confirmPayment = window.confirm(`Confirm payment for ${selectedSeats.length} seat(s) at ${showtimeDate}? Total: ฿${selectedSeats.length * price}`);
     if (confirmPayment) {
       try {
-        console.log('Sending data to server:', {
-          seats: selectedSeats,
-          showtime: showtimeDate,
-        }); // เพิ่ม log สำหรับข้อมูลที่ส่งไปยังเซิร์ฟเวอร์
-        
         const response = await axios.post('http://localhost:5000/api/bookSeat', {
           seats: selectedSeats,
           showtime: showtimeDate,
         });
 
-        console.log('Response from server:', response.data); // พิมพ์ข้อมูลที่ได้รับจากเซิร์ฟเวอร์
-
         if (response.data.message === 'Seats booked successfully!') {
-          const newBookedSeats = response.data.bookedSeats; // ใช้ bookedSeats ที่ได้รับจากเซิร์ฟเวอร์
-          setBookedSeats((prevBooked) => [...prevBooked, ...newBookedSeats]);
+          const newBookedSeats = response.data.bookedSeats;
+          setBookedSeats((prevBooked) => {
+            const updatedSeats = [...prevBooked, ...newBookedSeats];
+            localStorage.setItem('bookedSeats', JSON.stringify(updatedSeats)); // อัปเดต localStorage
+            return updatedSeats;
+          });
           setSelectedSeats([]);
           alert('Payment successful!');
-          localStorage.setItem('bookedSeats', JSON.stringify([...bookedSeats, ...newBookedSeats])); // อัปเดต localStorage
         }
       } catch (error) {
         console.error("Error booking seats:", error);
-        alert('There was an error while booking seats. Please try again.'); // ข้อความผิดพลาดที่เกิดขึ้น
+        alert('There was an error while booking seats. Please try again.');
       }
     }
   };
