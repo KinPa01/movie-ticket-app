@@ -76,3 +76,13 @@
   justify-content: space-between;
   display: flex;
 } 
+@media (max-width: 600px) {
+  .seat {
+    margin: 10px 0; /* Increase vertical spacing for mobile */
+  }
+
+  .seat-image {
+    width: 25vw; /* Use viewport width for responsive sizing */
+    max-height: 50px; /* Set a maximum height for mobile */
+  }
+}
