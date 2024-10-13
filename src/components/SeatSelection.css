@@ -3,14 +3,15 @@
   flex-direction: column; /* Arrange rows vertically */
   align-items: center; /* Center rows */
 }
+
 .seat-selection {
   padding: 20px;
   text-align: center;
 }
 
 .seat-row {
-  display: flex;
-  justify-content: center; /* Center seats in each row */
+  display: flex; /* Use flexbox to arrange seats in a row */
+  justify-content: center; /* Center seats in the row */
   margin: 10px 0; /* Space between rows */
 }
 
@@ -18,27 +19,36 @@
   margin-right: 10px;
   font-weight: bold;
 }
+
 .movie-title, .movie-genre, .showtime {
   text-align: center; /* Center text */
 }
+
 .seat {
   display: flex;
   flex-direction: column; /* Arrange image and label vertically */
   align-items: center; /* Center the label */
+  margin: 5px; /* Add some space around each seat */
+  width: 7vw; /* Adjust width based on viewport width */
+  max-width: 70px; /* Set a maximum width for the seat */
 }
+
 .seat-image {
-  width: auto; /* Set a width */
-  height: auto; /* Maintain aspect ratio */ /* Maximum height to control the size */
+  width: 100%; /* Use full width of the seat container */
+  height: auto; /* Maintain aspect ratio */
+  max-height: 70px; /* Maximum height to control the size */
   object-fit: contain; /* Ensure the image fits without distortion */
   cursor: pointer; /* Show pointer cursor on hover */
 }
+
 .seat-image:hover {
   transform: scale(1.1); /* Slightly enlarge the image on hover */
   transition: transform 0.2s; /* Smooth transition */
 }
-.payment-button {
+
+/* Styles for buttons */
+.payment-button, .back-button {
   justify-content: space-between;
-  background-color: #409955;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -48,21 +58,17 @@
   margin-top: 20px;
 }
 
-.payment-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
+.payment-button {
+  background-color: #409955; /* Green */
 }
 
 .back-button {
-  justify-content: space-between;
-  background-color: #bb3d3d;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px;
-  margin-top: 10px;
+  background-color: #bb3d3d; /* Red */
+}
+
+.payment-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
 }
 
 .back-button:hover {
@@ -72,10 +78,12 @@
 .payment-button:hover {
   background-color: #262726;
 }
+
 .menu {
   justify-content: space-between;
   display: flex;
-} 
+}
+
 @media (max-width: 600px) {
   .seat {
     margin: 10px 0; /* Increase vertical spacing for mobile */
