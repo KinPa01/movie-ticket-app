@@ -21,7 +21,8 @@ const SeatSelection = () => {
   const [selectedSeats, setSelectedSeats] = useState([]);
   const [bookedSeats, setBookedSeats] = useState([]);
 
-  const seats = Array.from({ length: 120 }, (_, index) => ({
+  // Change number of seats from 120 to 60
+  const seats = Array.from({ length: 60 }, (_, index) => ({
     id: index + 1,
     name: String.fromCharCode(65 + Math.floor(index / 12)) + (index % 12 + 1),
   }));
@@ -152,7 +153,7 @@ const SeatSelection = () => {
       <p className="showtime">Showtime: {time}</p>
       <div className="screen-label">-- Screen --</div>
       <div className="seats-container">
-        {Array.from({ length: 10 }, (_, rowIndex) => (
+        {Array.from({ length: 5 }, (_, rowIndex) => (
           <div key={rowIndex} className="seat-row">
             {seats.slice(rowIndex * 12, rowIndex * 12 + 12).map(seat => {
               const seatId = seat.name;
