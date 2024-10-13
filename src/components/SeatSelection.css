@@ -27,7 +27,7 @@
   align-items: center; /* Center the label */
 }
 .seat-image {
-  width: 50px; /* Set a width */
+  width: auto; /* Set a width */
   height: auto; /* Maintain aspect ratio */
   max-height: 70px; /* Maximum height to control the size */
   object-fit: contain; /* Ensure the image fits without distortion */
