@@ -4,7 +4,7 @@
   justify-content: space-between;
   height: 400px; /* กำหนดความสูงให้เท่ากันทั้งหมด */
   padding: 20px;
-  border: 1px solid #ddd;
+  border: 1px solid 		#131618;
   border-radius: 8px;
   background-color: #fff;
   transition: box-shadow 0.3s; /* เพิ่ม transition สำหรับ shadow */
@@ -16,8 +16,6 @@
 .container {
   position: relative;
   text-align: center;
-  padding-bottom: 10px;
-
 }
 .poster-container {
   flex-grow: 1; /* ทำให้พื้นที่โปสเตอร์ใช้พื้นที่ว่าง */
@@ -68,7 +66,7 @@
   bottom: 0; /* ทำให้คะแนนอยู่ด้านล่างของโปสเตอร์ */
   left: 0;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color:   rgba(0, 0, 0, 0.7);
   color: white;
   display: flex;
   justify-content: space-around;

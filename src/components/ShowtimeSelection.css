@@ -1,5 +1,7 @@
 .showtime-selection {
     text-align: center;
+    background-color:	#2F0909;
+    padding: 30px 20px;
   }
   
   .date-selection button,
@@ -28,7 +30,7 @@
     border: 1px solid #000;
   }
   .button{
-    background-color: #bb3d3d;
+    background-color: #65bb3d;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -36,11 +38,20 @@
     cursor: pointer;
     border-radius: 5px;
     margin-top: 10px;
+    justify-content: space-between;
   }
   .button-container {
-    display: flex;
-    justify-content: space-between; /* Distribute space between buttons */
-    margin-top: 20px; /* Add some space above */
+    display:flex;
+    justify-content: space-around; /* Distribute space between buttons */
     width: 100%; /* Make it take the full width of the container */
+    border-bottom: 20px solid #303030;
+    background-color: #303030;
   }
-  
+h2{ 
+  color: #f5f5f5;
+}
+.back-confirm {
+  display: flex;
+  justify-content: space-between; /* To add space between buttons */
+  gap: 20px; /* Space between the buttons */
+}

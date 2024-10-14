@@ -55,7 +55,7 @@ const movies = [
       { time: '20:30', theater: 2 },
     ],
     price: 240,
-    poster: 'https://cdni-cf.ch7.com/dm/sz-sm/i/mg/e/5/c/e5cac0739cdb3a34264635a9f8f99bea_51peemak.jpg',
+    poster: 'https://www.francetvinfo.fr/pictures/ZI_qW8rj-M3FSK7NSsvoxY0r-Ow/fit-in/720x/2019/04/11/jurassic_c.jpg',
     ratings: {
       imdb: 7.0,
       rottenTomatoes: 60,
@@ -71,7 +71,7 @@ const movies = [
       { time: '13:00', theater: 2 },
     ],
     price: 200,
-    poster: 'https://cdni-cf.ch7.com/dm/sz-sm/i/mg/e/5/c/e5cac0739cdb3a34264635a9f8f99bea_51peemak.jpg',
+    poster: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHyvR0dM2P-zTwdnnr7Ojkzdl3qLMx3XgZvyuPSt5DBAPk5ZsKIYHEjeXfmNhvCQhEN_w&usqp=CAU',
     ratings: {
       imdb: 7.1,
       rottenTomatoes: 74,
@@ -87,7 +87,7 @@ const movies = [
       { time: '00:00', theater: 2 },
     ],
     price: 300,
-    poster: 'https://cdni-cf.ch7.com/dm/sz-sm/i/mg/e/5/c/e5cac0739cdb3a34264635a9f8f99bea_51peemak.jpg',
+    poster: 'https://m.media-amazon.com/images/M/MV5BODJkMTQ5ZmQtNzQxYy00ZWNlLWI0ZGYtYjU1NzdiMjcyNDRmXkEyXkFqcGc@._V1_.jpg',
     ratings: {
       imdb: 5.2,
       rottenTomatoes: 59,

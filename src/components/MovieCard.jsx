@@ -15,7 +15,7 @@ const MovieCard = ({ movie }) => {
 
   return (
     <div className="movie-card">
-      <div className="poster-container" onClick={handlePosterClick}>
+      <div className="poster-container">
         <img src={movie.poster} alt={movie.title} className="movie-poster" />
       </div>
       <h3 className="movie-title">{movie.title}</h3>

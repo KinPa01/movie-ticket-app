@@ -77,9 +77,12 @@ const ShowtimeSelection = () => {
                 </button>
               ))}
           </div>
-          <button className='button' onClick={proceedToSeatSelection}>Confirm and Proceed</button>
         </>
       )}
+      <div className='back-confirm'>
+      <button onClick={() => navigate(-1)} className="back-button">Back</button>
+      <button className='button' onClick={proceedToSeatSelection}>Confirm and Proceed</button>
+      </div>
     </div>
   );
 };

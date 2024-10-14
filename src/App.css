@@ -3,7 +3,7 @@
 
 .movie-card {
   position: relative; /* ทำให้สามารถใช้ position absolute สำหรับคะแนน */
-  background-color: #f5f5f5; /* สีไข่มุกขาว */
+  background-color: #303030; /* สีไข่มุกขาว */
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -18,6 +18,7 @@
   width: 220px; /* กำหนดความกว้างของโปสเตอร์ */
   height: auto; /* รักษาสัดส่วน */
   border-radius: 8px; /* เพิ่มมุมโค้งให้ภาพ */
+  object-fit: cover; /* ครอบรูปภาพให้อยู่ในขนาดที่กำหนด */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* เพิ่มเงาเพื่อความสวยงาม */
 }
 
@@ -43,10 +44,10 @@
   width: 100%; /* ใช้ความกว้างเต็ม */
   text-align: center; /* จัดกึ่งกลางข้อความ */
   font-size: 1.5rem; /* ขนาดตัวอักษร */
-  margin: 20px 0; /* ระยะห่างด้านบนและล่าง */
-  border-top: 2px solid #000; /* สร้างเส้นแบ่งด้านบน */
-  border-bottom: 2px solid #000; /* สร้างเส้นแบ่งด้านล่าง */
+  border-top: 3px solid #000; /* สร้างเส้นแบ่งด้านบน */
+  border-bottom: 3px solid #000; /* สร้างเส้นแบ่งด้านล่าง */
   padding: 10px 0; /* ระยะห่างด้านบนและล่างในส่วนของข้อความ */
+  background-color: #dba622;
 }
 
 .movie-title {
@@ -69,10 +70,14 @@
   justify-content: center; /* จัดกลางเนื้อหา */
   flex-wrap: wrap; /* ให้การ์ดหนังสามารถพันเข้าด้วยกัน */
   gap: 20px; /* ระยะห่างระหว่างการ์ด */
+  background-color: #2F0909; /* สีแดงเข้มคล้ายกับ Major */
+  color: #ffffff; /* สีทองสำหรับตัวอักษรหรือองค์ประกอบ */
+  padding: 30px 0px;
 }
+
 .movie-genre {
   font-size: 18px; /* ขนาดตัวอักษร */
-  color: #555; /* สีตัวอักษร */
+  color: #dba622; /* สีตัวอักษร */
   margin: 10px 0; /* ระยะห่างบน-ล่าง */
   text-align: center; /* จัดกึ่งกลาง */
 }

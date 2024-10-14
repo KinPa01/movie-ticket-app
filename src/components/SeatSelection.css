@@ -2,10 +2,11 @@
   display: flex;
   flex-direction: column; /* Arrange rows vertically */
   align-items: center; /* Center rows */
+  background-color: #ffffff;
 }
 
 .seat-selection {
-  padding: 20px;
+  /* border: 20px solid #0cee0c; */
   text-align: center;
 }
 
@@ -31,6 +32,7 @@
   margin: 5px; /* Add some space around each seat */
   width: 7vw; /* Adjust width based on viewport width */
   max-width: 70px; /* Set a maximum width for the seat */
+  background-color: #ffffff;
 }
 
 .seat-image {
@@ -78,7 +80,10 @@
 .payment-button:hover {
   background-color: #262726;
 }
-
+.total-price{
+  background-color: #bb3d3d;
+  color: #ffffff;
+}
 .menu {
   justify-content: space-between;
   display: flex;
