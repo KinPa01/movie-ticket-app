@@ -8,7 +8,7 @@ const seatImages = {
   selected: 'https://img2.pic.in.th/pic/461828597_503816429199425_991297528866013610_n-Photoroom.png',
   available: 'https://img2.pic.in.th/pic/462449664_1632754357452077_5643220750893270301_n-Photoroom.png',
 };
-
+ 
 const SeatSelection = () => {
   const location = useLocation();
   const navigate = useNavigate();
